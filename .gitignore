@@ -1,0 +1,17 @@
+# Ambientes Virtuais
+venv/
+
+# Arquivos de Cache
+__pycache__/
+*.pyc
+
+# Arquivos de Configuração
+*.env
+*.pyc
+_PROMPT - GESTOR.md
+Data-Quality-Engineering.md
+/Gerenciamento_doProjeto
+
+# Fonte de dados
+/data/
+
