@@ -7,9 +7,6 @@ __pycache__/
 
 # Arquivos de Configuração
 *.env
-*.pyc
-_PROMPT - GESTOR.md
-Data-Quality-Engineering.md
 /Gerenciamento_doProjeto
 
 # Fonte de dados
