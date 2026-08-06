@@ -1,0 +1,14 @@
+column,check,quantidade
+Country,multiple_fields_uniqueness,10147
+CustomerID,multiple_fields_uniqueness,10062
+CustomerID,not_nullable,135080
+Description,multiple_fields_uniqueness,10147
+InvoiceDate,multiple_fields_uniqueness,10147
+InvoiceNo,multiple_fields_uniqueness,10147
+InvoiceNo,str_matches('^[0-9]+$'),9291
+Quantity,greater_than_or_equal_to(0),10624
+Quantity,multiple_fields_uniqueness,10147
+StockCode,multiple_fields_uniqueness,10147
+StockCode,str_matches('^[0-9]{5}[A-Z]?$'),5265
+UnitPrice,greater_than(0),2517
+UnitPrice,multiple_fields_uniqueness,10147

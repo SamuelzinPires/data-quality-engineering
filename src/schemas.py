@@ -18,3 +18,6 @@ try:
     schema.validate(df, lazy=True)
 except pa.errors.SchemaErrors as erro:   
     print(erro.failure_cases)
+    erro.failure_cases.to_csv('data/relatorio_qualidade.csv', index=False)  #Salva o relatório de qualidade em um arquivo CSV
+    df_qualidade = erro.failure_cases.groupby(['column', 'check']).size().reset_index(name='quantidade').to_csv('relatorios/resumo_qualidade.csv', index=False)  #Salva o resumo do relatório de qualidade em um arquivo CSV
+    print(df_qualidade)
