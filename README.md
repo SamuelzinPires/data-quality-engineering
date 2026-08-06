@@ -4,14 +4,14 @@ Pipeline que ingere um dataset real de transações de e-commerce, aplica um con
 
 O foco do projeto é **detectar e reportar** problemas de qualidade, não corrigir os dados automaticamente. A decisão de como tratar cada violação (imputar, remover, investigar) fica a critério de quem consome o relatório — o pipeline só garante que nada passe despercebido.
 
-## 🧱 Stack
+##  Stack
 
 - **Python 3.14**
 - **DuckDB** — banco analítico local, usado para profiling exploratório via SQL
 - **Pandas** — carga e manipulação dos dados
 - **Pandera** — definição declarativa de schema e regras de qualidade sobre o DataFrame inteiro
 
-## 📊 Dataset
+##  Dataset
 
 [Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail) (UCI Machine Learning Repository) — 541.909 transações de uma varejista online do Reino Unido, entre dezembro/2010 e dezembro/2011.
 
@@ -19,7 +19,7 @@ Escolhido deliberadamente por ter problemas de qualidade **orgânicos** (não si
 
 > O arquivo bruto (`.xlsx`, ~23MB) não é versionado neste repositório (ver [Como rodar](#-como-rodar-localmente)) — baixe direto da fonte acima e salve em `data/Online Retail.xlsx`.
 
-## 🔄 Como o pipeline funciona
+## Como o pipeline funciona
 
 ```
 Online Retail.xlsx
@@ -36,7 +36,7 @@ relatório de violações
    └── relatorios/resumo_qualidade.csv     (agregado, por coluna + regra)
 ```
 
-## ✅ Regras de qualidade implementadas
+##  Regras de qualidade implementadas
 
 | Dimensão | Coluna | Regra | Violações encontradas |
 |---|---|---|---:|
@@ -49,7 +49,7 @@ relatório de violações
 
 Sobre um total de 541.909 linhas × 8 colunas.
 
-## 🗂️ Estrutura do projeto
+##  Estrutura do projeto
 
 ```
 data-quality-engineering/
@@ -63,7 +63,7 @@ data-quality-engineering/
 └── README.md
 ```
 
-## 🚀 Como rodar localmente
+##  Como rodar localmente
 
 ```bash
 git clone https://github.com/SamuelzinPires/data-quality-engineering.git
@@ -82,7 +82,7 @@ python src/explorar_duckdb.py    # cria o banco local e carrega os dados
 python src/schemas.py            # roda a validação e gera os relatórios
 ```
 
-## 🔮 Próximos passos
+## Próximos passos
 
 - Validação de registro único com **Pydantic** (complementar ao Pandera, para o caso de validar uma transação chegando individualmente).
 - Investigar a pequena divergência de contagem de duplicatas em `CustomerID` no resumo agregado.
