@@ -28,7 +28,7 @@ Online Retail.xlsx
 data/quality.duckdb  (banco local persistente)
         │  profiling exploratório (SUMMARIZE, duplicatas, formatos)
         ▼
-schema Pandera (7 regras de qualidade)
+schema Pandera (6 regras de qualidade)
         │  schema.validate(df, lazy=True)
         ▼
 relatório de violações
@@ -45,9 +45,11 @@ relatório de violações
 | Range | `UnitPrice` | deve ser > 0 | 2.517 |
 | Formato | `InvoiceNo` | apenas dígitos (sem prefixo de cancelamento) | 9.291 |
 | Formato | `StockCode` | 5 dígitos + letra maiúscula opcional | 5.265 |
-| Unicidade | linha inteira (8 colunas) | não pode haver linha duplicada | ~10.147 |
+| Unicidade | linha inteira (8 colunas) | não pode haver linha duplicada | 5.268 cópias extras |
 
 Sobre um total de 541.909 linhas × 8 colunas.
+
+> **Sobre as duplicatas:** os dois números medem coisas diferentes. O profiling no DuckDB (`COUNT(*) - COUNT(DISTINCT ...)`) conta **5.268 cópias extras**, que são as linhas que sobrariam para remover. Já o Pandera marca **todas** as linhas de cada grupo repetido, inclusive a primeira ocorrência, e por isso o resumo mostra **10.147 linhas** na regra de unicidade.
 
 ##  Estrutura do projeto
 
